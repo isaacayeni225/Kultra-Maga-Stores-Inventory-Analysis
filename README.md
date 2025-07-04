@@ -72,54 +72,54 @@ Data Analysis: Order data from the company, provided in Excel format, was analyz
 
 Question 1
 ----------------Product with the highest sales---------------
-SELECT TOP 3
+```SELECT TOP 3
 Product_Category,
 Sum(Sales) As [Total Sales]
 From [dbo].[KMS_STATUS]
 Group By
 Product_Category
 Order By
-[Total Sales] DESC
+[Total Sales] DESC```
 
 Question 2
 ---------------Top 3 and Bottom 3 regions in terms of Sales--------------- 
-SELECT TOP 3
+```SELECT TOP 3
 Region, Sum(Sales) As [Total Sales] 
 From [dbo].[KMS_STATUS]
 GROUP BY 
 Region
 ORDER BY 
-[Total Sales] DESC
+[Total Sales] DESC```
 
 ---------------Bottom 3---------------
-ELECT TOP 3
+```SELECT TOP 3
 Region, Sum(Sales) As [Total Sales] 
 From [dbo].[KMS_STATUS]
 GROUP BY 
 Region
 ORDER BY 
-[Total Sales] ASC
+[Total Sales] ASC```
 
 Question 3
 ---------------Total Sales of appliances in Ontario---------------
-SELECT
+```SELECT
 Region,
 Sum(Sales) As [Total Sales]
 From [dbo].[KMS_STATUS]
 WHERE
 Product_Sub_Category = 'Appliances'
 AND Region = 'Ontario'
-Group By Region
+Group By Region```
 
 Question 4
 --------Advice for management of KMS on what to do to increase the revenue from the bottom 10 customers--------
-SELECT top 10 
+```SELECT top 10 
 	customer_name, region, discount, customer_segment, product_category,province,
 	count(OrderID) as totalorders,
 	sum(sales) as totalsales
 	from [dbo].[KMS_STATUS]
 	 group by customer_name, region, discount, customer_segment, product_category, province
-	 order by totalsales asc
+	 order by totalsales asc```
 
 	```SELECT 
 'Potential Advice for Bottom 10 Customers' AS Advice,
