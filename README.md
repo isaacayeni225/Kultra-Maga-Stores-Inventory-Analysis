@@ -47,7 +47,7 @@ Kultra Mega Stores (KMS), a leading office supplies and furniture retailer in Ni
 
 ![image](https://github.com/isaacayeni225/Kultra-Maga-Stores-Inventory-Analysis/blob/0696e3ae001de4f9ed5989aa151960a8006bd03c/Q9.png)
 
-![image](
+![image](https://github.com/isaacayeni225/Kultra-Maga-Stores-Inventory-Analysis/blob/8a8ad7bd1a501dea1cb203074ca75aec65c96f86/Q10.png)
 
 ![image](
 
