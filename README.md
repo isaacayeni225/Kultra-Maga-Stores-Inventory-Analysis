@@ -5,7 +5,7 @@
 Kultra Mega Stores (KMS), a leading office supplies and furniture retailer in Nigeria, has engaged me as a Business Intelligence Analyst to analyze their order data from 2009 to 2012. The analysis aims to provide key insights and findings to inform business decisions and drive growth. And will also provide a clear and concise representation of the data, facilitating informed decision-making by the KMS management team.
 
 ## Tools and Methods Used
-Data Analysis: Order data in Excel format was analyzed using SQL. The data was used to answer the following questions:
+Data Analysis: Order data from the company, provided in Excel format, was analyzed using SQL to answer the following questions:
 
 1. Which product category had the highest sales?
 2. What are the Top3 and Bottom3 regions in terms of sales?
