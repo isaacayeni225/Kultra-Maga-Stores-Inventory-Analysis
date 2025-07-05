@@ -4,6 +4,25 @@
 ## Overview
 Kultra Mega Stores (KMS), a leading office supplies and furniture retailer in Nigeria, has engaged me as a Business Intelligence Analyst to analyze their order data from 2009 to 2012. The analysis aims to provide key insights and findings to inform business decisions and drive growth. And will also provide a clear and concise representation of the data, facilitating informed decision-making by the KMS management team.
 
+## Data Collected
+The dataset includes the following key columns:
+1. Order ID: Unique identifier for each order
+2. Order Date: The date the order was placed
+3. Order Priority: The priority level assigned to the order
+4. Sales: Total sales revenue generated
+5. Discount: The discount amount offered to customers
+6. Shipping Mode: The shipping method used for the order
+7. Profit: The revenue remaining after deducting expenses from sales
+8. Unit Price: The price of a single unit of the product
+9. Shipping Cost: The cost of shipping the order
+10. Customer Name: The name of the customer who placed the order
+11. Province/Region: The province or region where the order was placed
+12. Customer Segment: A group of customers with similar characteristics and needs
+13. Product Category: A category of similar products or services
+14. Product Name: The name of the product purchased
+15. Status: The status of the order (e.g., returned, delivered, pending)
+
+
 ## Tools and Methods Used
 Data Analysis: Order data from the company, provided in Excel format, was analyzed using SQL to answer the following questions:
 
