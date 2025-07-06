@@ -87,185 +87,43 @@ Data Analysis: Order data from the company, provided in Excel format, was analyz
 ![image](https://github.com/isaacayeni225/Kultra-Maga-Stores-Inventory-Analysis/blob/d8bf8e160b452d84afa603acad5d4a5ad095cf8e/11.png)
 
 
-## SQL Queries Used
+*Question 11* 
 
-Question 1
-----------------Product with the highest sales---------------
-```SELECT TOP 3
-Product_Category,
-Sum(Sales) As [Total Sales]
-From [dbo].[KMS_STATUS]
-Group By
-Product_Category
-Order By
-[Total Sales] DESC```
 
-Question 2
----------------Top 3 and Bottom 3 regions in terms of Sales--------------- 
-```SELECT TOP 3
-Region, Sum(Sales) As [Total Sales] 
-From [dbo].[KMS_STATUS]
-GROUP BY 
-Region
-ORDER BY 
-[Total Sales] DESC```
+If the delivery truck is the most economical but the slowest shipping method and Express Air is the fastest but the most expensive one, do you think the company appropriately spent shipping costs based on the order priority? Explain your answer
 
----------------Bottom 3---------------
-```SELECT TOP 3
-Region, Sum(Sales) As [Total Sales] 
-From [dbo].[KMS_STATUS]
-GROUP BY 
-Region
-ORDER BY 
-[Total Sales] ASC```
+Based on the query ran here:
 
-Question 3
----------------Total Sales of appliances in Ontario---------------
-```SELECT
-Region,
-Sum(Sales) As [Total Sales]
-From [dbo].[KMS_STATUS]
-WHERE
-Product_Sub_Category = 'Appliances'
-AND Region = 'Ontario'
-Group By Region```
-
-Question 4
---------Advice for management of KMS on what to do to increase the revenue from the bottom 10 customers--------
-```SELECT top 10 
-	customer_name, region, discount, customer_segment, product_category,province,
-	count(OrderID) as totalorders,
-	sum(sales) as totalsales
-	from [dbo].[KMS_STATUS]
-	 group by customer_name, region, discount, customer_segment, product_category, province
-	 order by totalsales asc```
-
-	```SELECT 
-'Potential Advice for Bottom 10 Customers' AS Advice,
-'1. Personalized Marketing' AS Strategy,
-'Offer targeted promotions, discounts, or loyalty programs' AS Description
-UNION ALL
-SELECT
-'Potential Advice for Bottom 10 Customers' AS Advice,
-'2. Customer feedback' AS Strategy,
-'Collect feedback from customers to understand their needs and preferences' AS Description
-UNION ALL
-SELECT
-'Potential Advice for Bottom 10 Customers' AS advice,
-'3. Product Recommendations' AS strategy,
-'Analyze purchase history and recommend products that might interest them' AS description
-UNION ALL
-SELECT
-'Potential Advice for Bottom 10 Customers' AS Advice,
-'4. Improved Customer Service' AS Strategy,
-'Provide exceptional customer service to build trust and loyalty' AS Description
-UNION ALL
-SELECT
-'Potential Advice for Bottom 10 Customers' AS Advice,
-'5. Loyalty Programs' AS Strategy,
-'Implement loyalty programs that reward repeat customers and encourage retention' AS Description
-UNION ALL
-SELECT
-'Potential Advice for Bottom 10 Customers' As Advice,
-'6. Targeted Communication' AS Strategy,
-'Regularly communicate with customers through email, phone, or social media' AS Description```
-
-Question 5
----------------The most shipping method cost incurred by KMS---------------
-  ```SELECT TOP 1 
-  [Ship_Mode], 
-  SUM([Shipping_Cost]) AS [Total Shipping Cost]
-FROM 
-  [dbo].[KMS_STATUS] 
-GROUP BY 
-  [Ship_Mode] 
-ORDER BY 
-  [Total Shipping Cost] DESC```
-
- Question 6
- -------------The most valuable customers, and what products or services do they typically purchase------------
-  ```SELECT TOP 10
-  [dbo].[KMS_STATUS].Customer_Name, 
-  [dbo].[KMS_STATUS].Product_Name, 
-  SUM([dbo].[KMS_STATUS].Sales) AS Total_Sales
-FROM 
-  [dbo].[KMS_STATUS] 
-WHERE 
- [dbo].[KMS_STATUS].Customer_Name IN (
-    SELECT TOP 10 
-      Customer_Name 
-    FROM 
-      [dbo].[KMS_STATUS] 
-    GROUP BY 
-      Customer_Name 
-    ORDER BY 
-      SUM(Sales) DESC
-  )
-GROUP BY 
- [dbo].[KMS_STATUS].Customer_Name, 
- [dbo].[KMS_STATUS].Product_Name 
-ORDER BY 
- [dbo].[KMS_STATUS].Customer_Name, 
-  Total_Sales DESC```
-
- Question 7
- ---------------The small business customer with the highest sales---------------
-  ```SELECT TOP 10
-  Customer_Name, SUM(Sales) As Total_Sales
-  From [dbo].[KMS_STATUS] 
-  WHERE 
-  Customer_Segment = 'Small Business'
-  GROUP BY 
-  Customer_Name
-  ORDER BY 
-  Total_Sales DESC```
-
-Question 8
---------------Corporate Customer who placed the most number of orders in 2009 - 2012---------------
-```SELECT TOP 10 
-    Customer_Name, 
-    COUNT(Sales) AS Total_Sales 
-FROM 
-    [dbo].[KMS_STATUS] 
-WHERE 
-    Customer_Segment = 'Corporate' 
-    AND Order_Date BETWEEN '2009-01-01' AND '2012-12-31' 
-GROUP BY 
-    Customer_Name 
-ORDER BY 
-    Total_Sales DESC```
-	
-  Question 9
-  ---------------The most profitable consumer customer---------------
-  ```SELECT TOP 10
-  Customer_Name, SUM(Sales) As Total_Sales
-  From KMS
-  WHERE 
-  Customer_Segment = 'Consumer'
-  GROUP BY 
-  Customer_Name
-  ORDER BY 
-  Total_Sales DESC```
-
-  Question 10
-  ---------------The customers who returned items, and their segment---------------
-    ```SELECT DISTINCT 
-    Customer_Name,  
-    Customer_Segment
-FROM 
-    [dbo].[KMS_STATUS]
-WHERE 
-    Status = 'Returned'```
-
-  Question 11
-  ---------------The company Shipping methods and shipping costs---------------
-```SELECT order_priority, ship_mode,
+                SELECT order_priority, ship_mode,
 		count(distinct OrderID) as TotalOrder,
 		round(sum(sales - profit),2) as [Estimated shipping Cost],
 		avg(datediff(day,[order_date],[ship_date])) as avgshipdays
-from [dbo].[KMS_STATUS] 
-group by  order_priority, ship_mode
-order by   order_priority, ship_mode desc```
+                from [dbo].[KMS_STATUS] 
+                group by  order_priority, ship_mode
+                order by   order_priority, ship_mode desc```
+                 
+
+it appears that the company was not using the most cost-effective shipping methods for certain order priorities. Recommendations include:
+
+- The company should review shipping policies to ensure alignment with business objectives.
+- The company should also analyze data to identify opportunities for cost savings.
+- And finally, the company should implement changes to shipping methods and policies as needed.
+  
+## Conclusion 
+The Kultra Mega Stores Inventory Analysis provides a comprehensive understanding of the company's sales performance, customer behavior, and shipping costs. By leveraging data-driven insights, KMS can optimize product offerings, improve regional sales, enhance customer relationships, and streamline shipping operations. The analysis serves as a foundation for informed decision-making, enabling KMS to drive business growth, improve customer satisfaction, and maintain its position as a leading office supplies and furniture retailer in Nigeria. With actionable recommendations and compelling visualizations, this analysis empowers KMS to take strategic steps towards a more efficient, customer-centric, and profitable business model.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
